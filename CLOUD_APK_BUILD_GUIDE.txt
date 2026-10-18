@@ -1,0 +1,23 @@
+REAL CHAT — CLOUD APK BUILD
+
+This package includes the native Android source plus a GitHub Actions workflow that builds an APK on a hosted Android build runner. This avoids installing Android Studio locally, but does require a GitHub account and a Firebase project configuration.
+
+BEFORE BUILDING
+1. Create a Firebase project at https://console.firebase.google.com/
+2. Add an Android app with package name com.example.realchat.
+3. Download google-services.json and put it at app/google-services.json.
+4. Enable Authentication > Anonymous sign-in.
+5. Create a Realtime Database and apply the test rules from README_SETUP.txt.
+
+BUILD IN THE CLOUD
+1. Create a new GitHub repository.
+2. Upload all files/folders in this project to the repository (keep the .github/workflows/build-apk.yml file).
+3. Open the repository's Actions tab.
+4. Select “Build Android APK” and click “Run workflow” (or push to main).
+5. When it succeeds, open that workflow run and download the “RealChat-debug-apk” artifact.
+6. Extract the artifact ZIP; app-debug.apk is the installable APK. Transfer it to your Android phone and install.
+
+IMPORTANT
+- I have not run this cloud build from this environment; the APK will be produced by GitHub Actions after you supply the Firebase config.
+- This app is a shared public group chat, not private 1-to-1 messaging. It has no push notifications when closed and no end-to-end encryption.
+- The included database rules are starter rules; review security before any public release.
